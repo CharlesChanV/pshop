@@ -1,0 +1,10 @@
+<!--components/title_first/index.wxml-->
+  <view class="title_first">
+    <view class="title_first-content">
+      <text class="cuIcon-favorfill text-yellow"></text>
+      <text class="title_first-text">{{title}}</text>
+    </view>
+    <view class="title_first-footer">
+      <text class="text-grey text-sm">{{description}}</text>
+    </view>
+  </view>

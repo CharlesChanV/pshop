@@ -1,0 +1,69 @@
+/**index.wxss**/
+page{
+  background-color: white;
+}
+.waterfall{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.fall-item{
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.582);
+  margin: 10rpx;
+  padding: 10rpx;
+  width: 45%;
+  height: 500rpx;
+  background-color: rgb(255, 255, 255);
+}
+.fall-img{
+  height: 280rpx;
+}
+.fall-text{
+  margin: 10rpx;
+}
+.fall-title{
+  font-weight: bold;
+  font-size: 34rpx;
+}
+.fall-des{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: grey;
+}
+.title-img{
+  border-radius: 5%;
+  padding: 15rpx;
+  width:500px;
+}
+.title-text{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 110px;
+  left: 20px;
+}
+.title-price{
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  font-size: 18px;
+  width: 80%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+.title-btn{
+  /* font-size: 15px; */
+  /* background-color: liner-gradient(to right,red，green); */
+  background: rgb(255, 230, 0) linear-gradient(to right, rgb(255, 196, 0), rgb(255, 94, 0));
+  color: white;
+  position: absolute;
+  top: 150px;
+  left: 300px;
+  width: 20% !important;
+  font-size: small;
+  border: 0;
+  /* padding: 10px; */
+}

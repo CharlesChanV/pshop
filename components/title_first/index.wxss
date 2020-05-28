@@ -1,0 +1,20 @@
+/* components/title_first/index.wxss */
+.title_first{
+  margin-left: 12px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.title_first-text{
+  font-size: 22px;
+  font-weight: bold;
+}
+.title_first-footer{
+  margin-right: 20rpx;
+  margin-top: 15rpx;
+  color: gray;
+}

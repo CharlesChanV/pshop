@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/about/index",
+    "pages/category/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "DG校舍",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#B0C4DE",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index_cur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "iconPath": "images/tabbar/classify.png",
+        "selectedIconPath": "images/tabbar/classify_cur.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "iconPath": "images/tabbar/about.png",
+        "selectedIconPath": "images/tabbar/about_cur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
