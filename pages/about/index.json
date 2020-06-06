@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor":"#ffffff",
+  "navigationBarTitleText":"DG校舍",
+  "navigationBarTextStyle":"black"
 }

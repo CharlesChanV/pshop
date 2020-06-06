@@ -21,11 +21,13 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.1",
-	"appid": "wx730803bb44a2735e",
+	"appid": "wxcbb90db94665fcb0",
 	"projectname": "pshop",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -1,0 +1,44 @@
+<swiper indicator-dots="true" autoplay="true" interval="3000" indicator-color="#1e1e1e" indicator-active-color="#eb6868" circular="true">
+    <block wx:for="{{swiperList}}">
+        <swiper-item>
+            <image class="image" src="{{item.url}}" mode="aspectFill" data-url="{{item.url}}" data-id="{{item.id}}" bindtap="previewImg" />
+        </swiper-item>
+    </block>
+</swiper>
+
+<view>
+    <view class="orderBriefIntroduction">
+        <view>
+            服务内容：
+        </view>
+        <view>
+            {{order.briefIntroduction}}
+        </view>
+    </view>
+    <view class="orderPrice">
+        <view>
+            价格：
+        </view>
+        <view class="center" style="margin-right:10rpx">
+            {{order.price}}
+        </view>
+        元
+    </view>
+    <view>
+        <view  class="orderDescribe">
+            描述
+        </view>
+        <view class="text">
+            {{order.describe}}
+        </view>
+    </view>
+</view>
+
+<view class="bottom-view" style="position:fixed; bottom:0;width: 750rpx;">
+    <view class="bottom-image">
+        <image src="../../images/contact.png" />
+    </view>
+    <view class="center bottom">
+        立即购买
+    </view>
+</view>
