@@ -6,11 +6,11 @@ page{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 .fall-item{
   box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.582);
-  margin: 10rpx;
+  margin: 17rpx;
   padding: 10rpx;
   width: 45%;
   height: 500rpx;

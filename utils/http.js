@@ -1,11 +1,11 @@
 /**
  * 请求相关的封装
  */
-let baseUrl = ""; // 接口地址
+export let baseUrl = "https://www.dingdongtongxue.com/pshop/public"; // 接口地址
 let header = {
   'content-type': 'application/x-www-form-urlencoded',
   // 'Authorization': "Bearer " + wx.getStorageSync("token")
-  'Authorization': wx.getStorageSync("token")
+  'Authorization': wx.getStorageSync("Authorization")
 }
 /**
  * 封装请求

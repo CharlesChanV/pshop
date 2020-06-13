@@ -20,7 +20,7 @@
     </swiper-item>
   </swiper>
 </view>
-<view>
+<!-- <view>
   <title_first title="神秘星期六" description="已有132485人浏览" />
   <view style="text-align: center;position: relative;">
     <image class="title-img" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="widthFix"></image>
@@ -28,15 +28,15 @@
     <view class="title-price">￥2000</view>
     <button class="title-btn">查看</button>
   </view>
-</view>
+</view> -->
 <view>
   <title_first title="热门商品" description="已有2382948人浏览" />
   <view class="waterfall">
-    <view class="fall-item" wx:for="{{10}}">
-      <image class="fall-img" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg" mode="aspectFill"></image>
+    <view class="fall-item" wx:for="{{goods_list}}" wx:key="index" bindtap="toDetail" data-goods_id="{{item.goods_id}}">
+      <image class="fall-img" src="{{upload_base+item.image[0].file_url}}" mode="aspectFill"></image>
       <view class="fall-text">
-        <view class="fall-title">北京冲冲冲冲冲冲冲冲冲</view>
-        <view class="fall-des">zhenhao1</view>
+        <view class="fall-title">{{item.goods_name}}</view>
+        <view class="fall-des">{{item.content}}</view>
       </view>
     </view>
   </view>

@@ -1,100 +1,69 @@
-// pages/order/index.js
-Page({
+const app = getApp()
+const http = require('../../utils/http')
 
+Page({
+ 
   /**
    * 页面的初始数据
    */
   data: {
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-        type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }],
-    order:{
-      briefIntroduction:"xxxxxxxx",
-      price:1111,
-      describe:"ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaac"
-    }
+    upload_base:http.baseUrl+'/uploads/',
+    is_shoucang:0,
+    goods_info: { goods_id: 1, goods_title: "商品标题1", goods_price: '100', goods_yunfei: 0, goods_kucun: 100, goods_xiaoliang: 1, content:'商品介绍详情商品介绍详情商品介绍详情商品介绍详情商品介绍详情商品介绍详情商品介绍详情'},
+    goods_img: [],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    //评价数据
+    // pjDataList: [{ headpic: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', author: '张三', add_time: '2018-06-01', content:'好评好评，真实太好了!'},
+    //   { headpic: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', author: '张三', add_time: '2018-06-01', content: '好评好评，真实太好了!' }
+    // ],
   },
-
-  previewImg:function(e){
-    console.log(e.currentTarget.dataset.id);
-    var that = this;
-    var id = e.currentTarget.dataset.id;
-    var url = e.currentTarget.dataset.url;
-    var previewImageArr = [];
-    var data = that.data.swiperList;
-    for(var i in data){
-        previewImageArr[i] = data[i].url;
+ 
+ 
+  previewImage: function (e) {
+    var current = e.target.dataset.src;
+    // var href = this.data.imghref;
+    var goodsimg = this.data.goods_img;
+    var imglist = [];
+    for (var i = 0; i < goodsimg.length; i++) {
+      imglist[i] = goodsimg[i].url
     }
     wx.previewImage({
-      current: url,
-      urls: previewImageArr
+      current: current, // 当前显示图片的http链接  
+      urls: imglist// 需要预览的图片http链接列表  
     })
   },
  
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.goods_id)
+    this.getDetail(options.goods_id)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getDetail(goods_id) {
+    http.get('/client/goods/get/'+goods_id).then((res)=>{
+      console.log(res.data)
+      let images = []
+      let result = []
+      images = res.data.image
+      images.map((item)=>{
+        result.push({
+          id:item.file_id,
+          url:this.data.upload_base+item.file_url
+        })
+      })
+      this.setData({
+        goods_info:res.data,
+        goods_img:result
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  toBuy() {
+    wx.navigateTo({
+      url: '/pages/order/place/index?goods_id='+this.data.goods_info.goods_id,
+    })
   }
 })

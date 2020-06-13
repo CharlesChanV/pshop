@@ -1,44 +1,89 @@
-<swiper indicator-dots="true" autoplay="true" interval="3000" indicator-color="#1e1e1e" indicator-active-color="#eb6868" circular="true">
-    <block wx:for="{{swiperList}}">
-        <swiper-item>
-            <image class="image" src="{{item.url}}" mode="aspectFill" data-url="{{item.url}}" data-id="{{item.id}}" bindtap="previewImg" />
-        </swiper-item>
-    </block>
-</swiper>
 
-<view>
-    <view class="orderBriefIntroduction">
-        <view>
-            服务内容：
-        </view>
-        <view>
-            {{order.briefIntroduction}}
-        </view>
-    </view>
-    <view class="orderPrice">
-        <view>
-            价格：
-        </view>
-        <view class="center" style="margin-right:10rpx">
-            {{order.price}}
-        </view>
-        元
-    </view>
-    <view>
-        <view  class="orderDescribe">
-            描述
-        </view>
-        <view class="text">
-            {{order.describe}}
-        </view>
+<!--商品幻灯片-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="banner" duration="{{duration}}" circular="{{duration}}">
+  <block wx:for="{{goods_img}}" wx:key="goods_info">
+    <swiper-item>
+      <image src="{{item.url}}" class="slide-image" mode="aspectFill" data-src='{{item.url}}' bindtap="previewImage"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!--商品幻灯片 end-->
+<view class="info-price clear">
+  <view class='price'>￥{{goods_info.sales_actual}} </view>
+  <view class='fenxiang'>
+      <button class='fxbtn' open-type="share">
+        <view style='height:20px;margin-top:8px;'><image src='/img/fenxiang.png' mode="aspectFill" ></image></view>
+        <view>分享</view>
+      </button>
+  </view>
+</view>
+<view class="info-title">
+    <text>{{goods_info.goods_name}}</text>
+</view>
+ 
+<view style="border-top:1px solid #F6F6F6;background: #fff; padding:5px 15px;">
+    <view class="clearfix flex grey gridXt">
+      <!-- <text class="sub"><block wx:if='{{goods_info.goods_yunfei==0.00}}'>运费：包邮</block><block wx:else>运费：{{goods_info.goods_yunfei}}</block></text> -->
+      <text class="sub">库存：{{goods_info.stock}}</text>
+      <text class="sub">销量：{{goods_info.sale_total?goods_info.sale_total:'/'}}</text>
     </view>
 </view>
-
-<view class="bottom-view" style="position:fixed; bottom:0;width: 750rpx;">
-    <view class="bottom-image">
-        <image src="../../images/contact.png" />
+<!-- <block wx:if="{{pjDataList!=''}}">
+  <view class='pj_box'>
+    <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
+     <view style='float:left;'>商品评价</view>
+     <view style='float:right;margin-left:2px;margin-top:-1px;'>
+        <image src="/img/ico_jt.png" class="ico_img_jt"></image>
+     </view>
+     <view style='float:right;font-size:12px;color:#A2A2A2;'>
+        <navigator url="pjList?id={{goods_id}}">查看全部</navigator>
+     </view>
+     <view class='clear'></view>
     </view>
-    <view class="center bottom">
-        立即购买
+    <block wx:for="{{pjDataList}}" wx:for-item="item" wx:key="pj">
+      <view class="list_item">
+        <view class='pj_u_info clear'>
+          <view class='header_img'><image src="{{item.headpic}}" mode="aspectFit"></image></view>
+          <view class='name'>{{item.author}}</view>
+          <view class='time'>{{item.add_time}}</view>
+        </view>
+        <view class='pj_cont'>
+          {{item.content}}
+        </view>
+      </view>
+    </block>
+</view>
+</block> -->
+<!--商品详情-->
+<view class='details_box'>
+  <view style="height:40px;line-height: 40px;border-bottom:1px solid #f5f5f5;">
+     <view>商品详情</view>
+  </view>
+  <view style='padding:10px 0px;'>
+      <view class="wxParse">
+         {{goods_info.content}}
+      </view>
     </view>
+</view>
+ 
+<!--底部浮动 start-->
+<view class="foot-nav mt15">
+  <view class="flex con gridXt tc">
+    <view class="fast-links mr15 flex f12">
+      <!-- <view class="sub gridYr" bindtap='shoucang'>
+        <text class="iconfont {{is_shoucang==0?'icon-shoucang1':'icon-shoucang2'}}">收藏</text>
+      </view>
+      <view class="sub kefu">
+       <button open-type="contact">
+        <text class="iconfont icon-lianxikefu">客服</text>
+       </button>
+      </view>
+      <view class="sub gridYr">
+        <text class="iconfont icon-gouwuche">购物车</text>
+      </view> -->
+    </view>
+    <view class="add-cart sub f16">
+      <button class="add-cart-btn" bindtap='toBuy'>立即购买</button>
+    </view>
+  </view>
 </view>

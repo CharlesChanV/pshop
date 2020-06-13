@@ -1,9 +1,11 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const http = require('../../utils/http')
 
 Page({
   data: {
+    upload_base:http.baseUrl+'/uploads/',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -21,6 +23,7 @@ Page({
       type: 'image',
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
     }],
+    goods_list:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -55,6 +58,8 @@ Page({
         }
       })
     }
+    this.getBanner()
+    this.getGoodsList()
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -62,6 +67,36 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  getBanner() {
+    http.get('/client/getIndexBanner').then((res)=>{
+      let images = []
+      let result = []
+      images = res.data.images
+      images.map((item)=>{
+        result.push({
+          id:item.file_id,
+          url:this.data.upload_base+item.file_url.replace('\\','/')
+        })
+      })
+      console.log(result)
+      this.setData({
+        swiperList:result
+      })
+    })
+  },
+  getGoodsList() {
+    http.get('/client/goods').then((res)=>{
+      this.setData({
+        goods_list:res.data.data
+      })
+    })
+  },
+  toDetail(e) {
+    // console.log(e.currentTarget.dataset.goods_id)
+    wx.navigateTo({
+      url: '/pages/order/index?goods_id='+e.currentTarget.dataset.goods_id,
     })
   }
 })
