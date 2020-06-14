@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  toAbout() {
+    wx.redirectTo({
+      url: '../../order_list/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

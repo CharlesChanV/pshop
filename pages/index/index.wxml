@@ -30,7 +30,7 @@
   </view>
 </view> -->
 <view>
-  <title_first title="热门商品" description="已有2382948人浏览" />
+  <title_first title="热门" description="已有2382948人浏览" />
   <view class="waterfall">
     <view class="fall-item" wx:for="{{goods_list}}" wx:key="index" bindtap="toDetail" data-goods_id="{{item.goods_id}}">
       <image class="fall-img" src="{{upload_base+item.image[0].file_url}}" mode="aspectFill"></image>

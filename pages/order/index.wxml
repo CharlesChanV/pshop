@@ -83,7 +83,7 @@
       </view> -->
     </view>
     <view class="add-cart sub f16">
-      <button class="add-cart-btn" bindtap='toBuy'>立即购买</button>
+      <button class="add-cart-btn" bindtap='toBuy'>立即预定</button>
     </view>
   </view>
 </view>

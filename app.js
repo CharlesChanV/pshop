@@ -1,4 +1,5 @@
 //app.js
+const http = require('./utils/http')
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -8,7 +9,11 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
+      success: async res => {
+        // console.log(res)
+        await http.post('/client/login',{code:res.code}).then((rr)=>{
+          wx.setStorageSync('Authorization', rr.data.Authorization)
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })

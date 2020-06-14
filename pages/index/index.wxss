@@ -9,7 +9,8 @@ page{
   justify-content: left;
 }
 .fall-item{
-  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.582);
+  box-shadow:2px 2px 6px rgba(0, 0, 0, .12),4px 4px 6px rgba(0, 0, 0, .08),6px 6px 6px rgba(0, 0, 0, .04),
+  -2px -2px 6px rgba(0, 0, 0, .12),-4px -4px 6px rgba(0, 0, 0, .08),-6px -6px 6px rgba(0, 0, 0, .04);
   margin: 17rpx;
   padding: 10rpx;
   width: 45%;

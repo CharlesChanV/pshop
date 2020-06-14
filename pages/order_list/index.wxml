@@ -1,0 +1,7 @@
+<!--pages/order_list/index.wxml-->
+<text>pages/order_list/index.wxml</text>
+<view>
+  <view class=""></view>
+  <sale-card />
+
+</view>

@@ -9,7 +9,7 @@
 .top{
     width: 100%;
     height: 300rpx;
-    background-color: #64b964;
+    background-color: #f1bc0f;
 }
 
 .nav{

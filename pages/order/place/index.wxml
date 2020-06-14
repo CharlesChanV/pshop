@@ -1,2 +1,25 @@
-<!--pages/order/place/index.wxml-->
-<text>pages/order/place/index.wxml</text>
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="weui-msg">
+		<view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
+		<view class="weui-msg__text-area">
+			<h2 class="weui-msg__title">预定成功</h2>
+			<view class="weui-msg__desc">可前往订单详情页查看</view>
+		</view>
+		<view class="weui-msg__opr-area">
+			<view class="weui-btn-area">
+				<button class="weui-btn weui-btn_primary" bindtap="toAbout">查看订单</button>
+			</view>
+		</view>
+		<view class="weui-msg__tips-area">
+			<view class="weui-msg__tips">由于微信支付个人主体限制使用，无法完成支付功能</view>
+		</view>
+		<view class="weui-msg__extra-area">
+			<!-- <view class="weui-footer">
+				<view class="weui-footer__links">
+					<a class="weui-footer__link">底部链接文本</a>
+				</view>
+				<view class="weui-footer__text">Copyright &copy; 2020-2020 charleschr.xyz</view>
+			</view> -->
+		</view>
+	</view>
+</view>

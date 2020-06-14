@@ -5,51 +5,25 @@
                 <image class="head" src="../../images/head.png" />
             </navigator>
             <navigator url="">
-                <view class="nav-1">点击登录</view>
+                <view class="nav-1">欢迎使用</view>
             </navigator>
         </view>
     </view>
     <view class="middle"></view>
     <view class="bottom">
         <view class="bottom-line">
+        <navigator url="../address/index" hover-class="className">
             <view class="bottom-left">
                 <image class="bottom-image" src="../../images/address.png" />
                 <view class="bottom-context">收货地址</view>
             </view>
             <view class="arrow"> > </view>
-        </view>
-        <view class="bottom-line">
-            <view class="bottom-left">
-                <image class="bottom-image" src="../../images/welf.png" />
-                <view class="bottom-context">领劵中心</view>
-            </view>
-            <view class="arrow"> > </view>
-        </view>
-        <view class="bottom-line">
-            <view class="bottom-left">
-                <image class="bottom-image" src="../../images/coupon.png" />
-                <view class="bottom-context">我的优惠券</view>
-            </view>
-            <view class="arrow"> > </view>
-        </view>
-        <view class="bottom-line">
-            <view class="bottom-left">
-                <image class="bottom-image" src="../../images/collage.png" />
-                <view class="bottom-context">拼团订单</view>
-            </view>
-            <view class="arrow"> > </view>
+        </navigator>
         </view>
         <view class="bottom-line">
             <view class="bottom-left">
                 <image class="bottom-image" src="../../images/feedback.png" />
                 <view class="bottom-context">意见反馈</view>
-            </view>
-            <view class="arrow"> > </view>
-        </view>
-        <view class="bottom-line">
-            <view class="bottom-left">
-                <image class="bottom-image" src="../../images/aboutUs.png" />
-                <view class="bottom-context">关于我们</view>
             </view>
             <view class="arrow"> > </view>
         </view>
@@ -62,34 +36,42 @@
             <view class="item-11">
                 我的订单
             </view>
-            <navigator url="" redirect hover-class="className" class="item-12">全部订单 ></navigator>
+            <navigator url="../order_list/index" redirect hover-class="className" class="item-12">全部订单 ></navigator>
         </view>
         <view class="line"></view>
         <view class="item-2">
-            <view class="item-21">
-                <image class="image" src="../../images/order.png" />
-                <view>
-                    全部订单
+            <navigator url="../order_list/index">
+                <view class="item-21">
+                    <image class="image" src="../../images/order.png" />
+                    <view>
+                        全部
+                    </view>
                 </view>
-            </view>
+            </navigator>
+            <navigator url="../order_list/index">
             <view class="item-21">
                 <image class="image" src="../../images/pay.png" />
                 <view>
                     待付款
                 </view>
             </view>
+            </navigator>
+            <navigator url="../order_list/index">
             <view class="item-21">
                 <image class="image" src="../../images/received.png" />
                 <view>
                     待收货
                 </view>
             </view>
+            </navigator>
+            <navigator url="../order_list/index">
             <view class="item-21">
                 <image class="image" src="../../images/back.png" />
                 <view>
                     退款/售后
                 </view>
             </view>
+            </navigator>
         </view>
     </view>
 </view>

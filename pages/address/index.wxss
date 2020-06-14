@@ -1,0 +1,6 @@
+/* pages/address/index.wxss */
+sub-btn{
+  vertical-align: middle;
+  text-align: center;
+  align-content: center;
+}

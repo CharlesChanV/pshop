@@ -14,7 +14,7 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 1000,
+    duration: 1000
     //评价数据
     // pjDataList: [{ headpic: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', author: '张三', add_time: '2018-06-01', content:'好评好评，真实太好了!'},
     //   { headpic: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg', author: '张三', add_time: '2018-06-01', content: '好评好评，真实太好了!' }
@@ -62,8 +62,39 @@ Page({
     })
   },
   toBuy() {
+    if(!this.placeOrder())
+    {
+      wx.showToast({
+        title: '网络异常',
+        icon:'none'
+      })
+      return ;
+    }
     wx.navigateTo({
       url: '/pages/order/place/index?goods_id='+this.data.goods_info.goods_id,
     })
+  },
+  async placeOrder() {
+    const {goods_id} = this.data.goods_info
+    const data = {
+      products:[{goods_id:goods_id,count:1}]
+    }
+    // await http.post('/client/placeOrder',data).then(res=>{
+    //   console.log(res)
+    //   return true
+    // })
+    wx.request({
+      url: http.baseUrl+'/client/placeOrder',
+      method:'POST',
+      header:{
+        'Authorization': wx.getStorageSync("Authorization")
+      },
+      data:data,
+      success:res=>{
+        console.log(res)
+        return true
+      }
+    })
+    return false
   }
 })

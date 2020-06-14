@@ -5,7 +5,9 @@
     "pages/about/index",
     "pages/category/index",
     "pages/order/index",
-    "pages/order/place/index"
+    "pages/order/place/index",
+    "pages/address/index",
+    "pages/order_list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,12 +25,6 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/category/index",
-        "iconPath": "images/tabbar/classify.png",
-        "selectedIconPath": "images/tabbar/classify_cur.png",
-        "text": "分类"
-      },
-      {
         "pagePath": "pages/about/index",
         "iconPath": "images/tabbar/about.png",
         "selectedIconPath": "images/tabbar/about_cur.png",
@@ -38,6 +34,9 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
