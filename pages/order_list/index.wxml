@@ -1,7 +1,29 @@
 <!--pages/order_list/index.wxml-->
-<text>pages/order_list/index.wxml</text>
-<view>
+<!-- <text>pages/order_list/index.wxml</text> -->
+<view class="card" wx:for="{{order_list}}" wx:key="index">
   <view class=""></view>
-  <sale-card />
-
+  <sale-card 
+    wx:for="{{item.goods}}"
+    wx:for-item="goodsItem"
+    img="https://www.dingdongtongxue.com/pshop/public/uploads/{{goodsItem.image[0].file_url}}"
+    title="{{goodsItem.goods_name}}"
+    price="{{goodsItem.sales_actual}}￥"
+    type="服务"
+  />
+  <view class="order-detail">
+    <view class="order-item">订单编号:{{item.order_no}}</view>
+    <view class="order-item">收货地址:{{item.address[0].detail}}</view>
+    <view class="order-item">已支付:{{item.pay_price}}</view>
+    <view class="order-item">支付状态:<text style="color:{{pay_status[item.pay_status].color}};">{{pay_status[item.pay_status].name}}</text></view>
+    <view class="order-item">订单状态:{{order_status[item.order_status]}}</view>
+    <view class="order-item">下单时间:{{item.create_time}}</view>
+    <view class="order-item">总价:{{item.total_price}}</view>
+    <view class="order-item">发货状态:{{delivery_status[item.delivery_status]}}</view>
+    <view class="order-item">收货状态:{{receipt_status[item.receipt_status]}}</view>
+    <view class="order-item-btn">
+      <button class="my-btn" size="mini" bindtap="cancelOrder" data-order_id="{{item.order_id}}">取消订单</button>
+      <button class="my-btn" type="primary" wx:if="{{item.pay_status>=10&&item.order_status!=20&&item.order_status!=30&&item.receipt_status==10}}" bindtap="confirmOrder" data-order_id="{{item.order_id}}">确认收货</button>
+      <button class="my-btn" type="primary" wx:if="{{receipt_status==20}}" disabled="true">已收货</button>
+    </view>
+  </view>
 </view>

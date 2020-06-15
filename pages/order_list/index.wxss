@@ -1,1 +1,22 @@
 /* pages/order_list/index.wxss */
+.card{
+  margin:10px;
+}
+.order-detail{
+  background-color: white;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.order-item{
+  padding: 2px 0 5px 10px; 
+  color: rgb(167, 165, 165);
+}
+.order-item-btn{
+  padding: 2px 0 10px 5px; 
+  display: flex;
+  flex-direction: row;
+}
+.my-btn{
+  text-align: center;
+  vertical-align: middle;
+}
